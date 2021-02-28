@@ -1,0 +1,25 @@
+﻿<Window x:Class="HEXDumpViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HEXDumpViewer"
+        mc:Ignorable="d"
+        Title="HEXDumpViewer" Height="900" Width="1600"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Button Content="Ouvrir un fichier" Height="25" Click="Button_Click"/>
+            <TextBlock Text="{Binding Filename}" Margin="0, 10, 0, 0" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding Filelength}" Margin="0, 5, 0, 0" HorizontalAlignment="Center"/>
+        </StackPanel>
+        
+        <TextBox Grid.Column="1" Text="{Binding TextHexa}" IsReadOnly="true" AcceptsReturn="True" Name="TextboxHexa" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" ScrollViewer.ScrollChanged="TextBox_ScrollChanged"/>
+        <TextBox Grid.Column="2" Text="{Binding Text}" IsReadOnly="true" AcceptsReturn="True" Name="TextboxText" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" ScrollViewer.ScrollChanged="TextBox_ScrollChanged"/>
+    </Grid>
+</Window>
